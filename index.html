@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> <!--googleFont  Roboto 링크-->
+  <script src="https://kit.fontawesome.com/2d323a629b.js" crossorigin="anonymous"></script>
+  <script src="main.js" defer></script>
+  <!--fontAwesome 링크 -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      font-family: "Roboto";
+      font-size: 16px;
+    }
+  </style>
+</head>
+<script>
+$("#item1").onmouseover(function(){
+  $("#moreBtn1").css("opacity", "0.6");
+});
+$("#item1").onmouseout(function(){
+  $("#moreBtn1").css("opacity", "0");
+});
+</script>
+<body>
+  <!-- top -->
+  <top>
+    <div class="topLeft">
+      <div class="topList"><i class="fas fa-bars"></i></div>
+      <div class="topLogo"><img src="image/Logo.png"></div>
+    </div>
+    <form id="container" class="topCenter">
+      <div id="container" class="searchBox">
+        <div id="searchInput" class="searchInput">
+          <input id="search" type="text" placeholder="검색"  style="border: none; height: auto; width: 100%; outline: none;">
+        </div>
+        <div id="searchKeyboard" class="searchKeyboard">
+          <img src="//www.gstatic.com/inputtools/images/tia.png" tia_field_name="search_query" tia_disable_swap="true" tia_property="youtube">
+        </div>
+      </div>
+      <button type="button" class="searchBtn">
+        <i class="fas fa-search"></i></button>
+    </form>
+    <div class="topRight">
+      <button type="button" class="topIconVideo"><i class="fas fa-video"></i></button>
+      <button type="button" class="topIconList"><i class="fas fa-list"></i></button>
+      <button type="button" class="topIconBell"><i class="fas fa-bell"></i></button>
+      <button type="button" class="topIconMy"><img src="image/2.jpg" alt=""></button>
+    </div>
+  </top>
+  
+  <div class="border">
+    <!-- header -->
+    <div class="headerBox">
+      <header>
+        <div class="logoAndIcons">
+          <div class="logo">
+            <i class="fab fa-youtube"></i>
+            <span class="title">Youtube</span>
+          </div>
+          <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <!-- video player -->
+        <section class="player">
+          <video controls src="video/flame.mp4"></video>
+        </section>
+      </header>
+    </div>
+      <!-- Up Next -->
+      <section class="upNext">
+        <span class="title">다음 동영상</span>
+        <ul>
+          <li id="item1" class="item" onmouseover="changeOpacityOn1()" onmouseout="changeOpacityOut1()">
+            <div class="img"><img src="image/forest.jpg" alt=""></div>
+            <div class="info">
+              <span class="title">Youtube cloneCoding 프론트엔드 초보 개발자를 위한 클론코딩.</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 64만회 · 3개월 전 </span>
+            </div>
+            <button id="moreBtn1" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <hr>
+          <li id="item2" class="item" onmouseover="changeOpacityOn2()" onmouseout="changeOpacityOut2()">
+            <div class="img"> <img src="image/fantasy.jpg" alt=""></div>
+            <div class="info">
+              <span class="title">cloneCoding by CodeCYJ</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 43만회 · 1개월 전 </span>
+            </div>
+            <button id="moreBtn2" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li id="item3" class="item" onmouseover="changeOpacityOn3()" onmouseout="changeOpacityOut3()">
+            <div class="img"> <img src="image/fireworks.png" alt=""></div>
+            <div class="info">
+              <span class="title">HTML&CSS coding basic Ver.</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 230만회 · 11개월 전 </span>
+            </div>
+            <button id="moreBtn3" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li id="item4" class="item" onmouseover="changeOpacityOn4()" onmouseout="changeOpacityOut4()">
+            <div class="img"> <img src="image/bg0.jpg" alt=""></div>
+            <div class="info">
+              <span class="title">HTML, CSS, JavaScript를 활용한 CloneCoding 기초편 - Apple 사이트</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 30만회 · 7개월 전 </span>
+            </div>
+            <button id="moreBtn4" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li id="item5" class="item" onmouseover="changeOpacityOn5()" onmouseout="changeOpacityOut5()">
+            <div class="img"> <img src="image/blog_2.jpg" alt=""></div>
+            <div class="info">
+              <span class="title">HTML&CSS coding basic Ver.2</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 330만회 · 4개월 전 </span>
+            </div>
+            <button id="moreBtn5" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+          <li id="item6" class="item" onmouseover="changeOpacityOn6()" onmouseout="changeOpacityOut6()">
+            <div class="img"> <img src="image/header.jpg" alt=""></div>
+            <div class="info">
+              <span class="title">HTML&CSS coding basic Ver.3</span>
+              <span class="name">CodeCYJ</span>
+              <span class="views">조회수 130만회 · 1개월 전 </span>
+            </div>
+            <button id="moreBtn6" class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+          </li>
+        </ul>
+      </section>
+       <!-- video infomation-->
+       <section class="info">
+        <!-- Metadata-->
+        <div class="metadata">
+          <ul class="hashtags">
+            <li>#Youtube</li>
+            <li>#Clone</li>
+            <li>#Coding</li>
+          </ul>
+          <div class="titleAndButton">
+            <span class="title clamp">
+              Clone Coding : Youtube Mobile Website 유튜브 모바일 웹사이트 따라 만들기. 프론트엔드 개발자 입문편.HTML&CSS&Javascript 프론트엔드 실전 입문편 by CodeCYJ 
+            </span>
+            <button class="moreBtn">
+              <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+            <!-- <span class="views">조회수 2,595,838회 · 2020.11.16.</span> -->
+        </div>
+          <!--Actions-->
+        <div class="viewsAndActions">
+          <div class="views"><p>조회수 2,595,838회 · 2020.11.16.</p></div>
+          <div class="actions">
+            <ul class="actions">
+              <!-- (li>button)*5 -->
+              <li><button id="like"><i class="fas fa-thumbs-up active"> 3.4만</i></button></li>
+              <li><button id="hate"><i class="fas fa-thumbs-down active"> 1.2천</i></button></li>
+              <li><button><i class="fas fa-share"> 공유</i></button></li>
+              <li><button><i class="fas fa-plus"> 저장</i></button></li>
+              <li><button><i class="fas fa-ellipsis-h"></i></button></li>
+            </ul>
+          </div>
+        </div>
+          <!-- Channel Description -->
+        <hr>
+        <div class="channel">
+          <div class="metadata">
+            <span class="infoId">
+              <img src="image/2.jpg" alt="">
+            </span>
+            <div class="info">
+              <span class="name">CodeCYJ</span>
+              <span class="subscribers">구독자 13.6만명</span>
+            </div>
+          </div>
+          <button class="subscribe">구독</button>
+        </div>
+        <div class="text">프론트엔드 개발자 입문편 - Youtube Clone Coding !!!</div>
+        <hr>
+      </section>
+  </div>
+  <div class="commentTitle">
+    <p>댓글 1개&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-sliders-h"> 정렬 기준</i></p>
+  </div>
+  <div class="comment">
+    <button type="button" class="topIconMy"><img src="image/2.jpg" alt=""></button>
+    <p>공개 댓글 추가 ...</p>
+  </div>
+</body>
+</html>

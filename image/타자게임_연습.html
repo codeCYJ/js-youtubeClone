@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>베네치아 타자게임</title>
+<style>
+#wrapper{
+    width:1000px;
+    height:600px;
+    margin: auto;
+    overflow: hidden;/*자식 때문에..*/
+}     
+/*자식 요소를 띄울 경우 반드시 부모에는  overflow 속성이
+명시되어야 한다..*/   
+#dashBoard{
+    width:200px;
+    height:100%;
+    float:left;
+    text-align:center;
+    padding-top:10px;
+}
+#container{
+    width:800px;
+    height:100%;
+    background-image:url("../images/hell.jpg");
+    background-size: 100% 600px;
+    float:left;
+    position: relative; /*자식 단어 때문에...*/
+
+}
+button{
+    width:95%;
+    background: #4CAF50;
+    color:#ffffff;
+    padding:12px;
+
+}
+
+input[type='text']{
+    width:93%;
+    height:45px;
+    margin-top:5px;
+    font-size:20pt;
+}
+#hpArea{
+    width:100%;
+    height:180px;
+    background:honeydew;
+    position: relative; /*아무거나 상관없이 포지션이 지정되어
+    있기만 하면 된다!!*/
+}
+#scoreArea{
+    width:100%;
+    font-size:40pt;
+    font-weight: bold;
+}
+</style>    
+<script src="../js/lib.js"></script>
+<script>
+var hpArea;
+var scoreArea;
+var container;
+var step=0;
+var hpArray=new Array(9);
+var hitCount=0;
+var flag=true;
+
+//사용자가 입력한 텍스트와 게임에 등장할 단어는 반복문으로
+//비교되어야 하므로, 배열화 되어있어야 한다!!!
+var word=[
+    "모니터","울산","태양","오라클","장미",
+    "광화문","자전거","지하철","생수","제주도"
+];
+
+//지역변수인 span을 보관할 배열
+var wordArray=new Array(word.length); //배열의 수많큼을 확보하자!!
+
+window.addEventListener("load", function(){
+    hpArea = document.getElementById("hpArea");
+    scoreArea = document.getElementById("scoreArea");
+    container = document.getElementById("container");
+
+    createHP();
+    getScore(); //점수 출력!!
+    createWord();//단어 생성하기!!
+
+    setInterval("move()",100);
+
+});    
+
+//에너지 박스 만들기 
+function createHP(){
+    var n=0;
+    for(var a=0;a<3;a++){
+        for(var i=0;i<3;i++){
+            var span = document.createElement("span"); //inline
+            span.style.display="inline-block"; //width, height 가능함
+            span.style.width=48+"px"; 
+            span.style.height=48+"px";
+            span.style.border="1px solid yellow";
+            span.style.background="red";
+            span.style.position="absolute";
+            span.style.left=24+(i*51)+"px";
+            span.style.top=15+(a*51)+"px";
+
+            //hpArea 에 부착!!!
+            hpArea.appendChild(span); 
+            hpArray[n++]=span;
+        }
+    }
+}
+function getScore(){
+    scoreArea.innerHTML="100 점";
+}
+
+
+function createWord(){
+    for(var i=0;i<word.length;i++){
+        var span = document.createElement("span");
+        span.innerHTML=word[i];
+        span.style.fontWeight="bold";
+        span.style.position="absolute";
+        span.style.left=(i*75)+"px";
+        span.style.top=-getRandom(0,100)+"px";
+        span.style.color="#ffffff";
+
+        container.appendChild(span);
+
+        //배열에 보관해놓기~~
+        wordArray[i]=span;
+    }
+}
+
+//단어들을 일정시간 간격으로 내려오게 하자!!(y축 증가)
+function move(){
+    if(flag){
+        //반복문으로..모든 span 내려오게..
+        for(var i=0;i<wordArray.length;i++){
+            var y = parseInt(wordArray[i].style.top);
+            //console.log(y);
+            if(y>=550){
+                wordArray[i].style.color="red";
+                setHp();
+            }
+            wordArray[i].style.top=y+10+"px";
+        }
+    }
+}
+function setHp(){
+    hpArray[hitCount++].style.background="yellow";
+
+    if(hitCount>=hpArray.length){
+        flag=false;
+    }
+}
+</script>    
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="dashBoard">
+            <button>Start</button>                
+            <input type="text"/>
+            <div id="hpArea"></div>
+            <div id="scoreArea"></div>
+        </div>
+        <div id="container"></div>
+    </div>
+
+</body>
+</html>
+
+
+
